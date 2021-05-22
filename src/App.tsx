@@ -55,8 +55,21 @@ const App: React.FC = () => {
       <h2>{user.name}</h2>
       <h2>{user.age}</h2>
       <h2>{user.job}</h2>
+
+      <button onClick={() => deleteHandler(i)}>Delete User</button>
     </div>
   ))
+
+  const deleteHandler = (index: number) : void => {
+    const filterUsers = usersState.allUsers.filter((user, i) => {
+      return index !== i
+    })
+
+    setUsersState({
+      ...usersState,
+      allUsers: filterUsers
+    })
+  }
 
   return (
     <div className="container">
