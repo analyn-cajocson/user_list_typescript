@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
+import User, { UserInt } from './components/User'
 import './App.css';
 
 const App: React.FC = () => {
-
-  interface UserInt {
-    name: string;
-    age: string;
-    job: string;
-  }
-
   interface AllUsersInt {
     currentUser: UserInt;
     allUsers: Array<UserInt>;
@@ -18,7 +12,8 @@ const App: React.FC = () => {
     currentUser: {
       name: "",
       age: "",
-      job: ""
+      job: "",
+      deleteUser: () => {}
     },
 
     allUsers: []
@@ -41,7 +36,8 @@ const App: React.FC = () => {
       currentUser: {
         name: "",
         age: "",
-        job: ""
+        job: "",
+        deleteUser: () => {}
       },
       allUsers: [
         ...usersState.allUsers,
@@ -51,13 +47,13 @@ const App: React.FC = () => {
   }
 
   const allUsers = usersState.allUsers.map((user, i) => (
-    <div key={i}>
-      <h2>{user.name}</h2>
-      <h2>{user.age}</h2>
-      <h2>{user.job}</h2>
-
-      <button onClick={() => deleteHandler(i)}>Delete User</button>
-    </div>
+    <User 
+      key={i}
+      name={user.name}
+      age={user.age}
+      job={user.job}
+      deleteUser={() => deleteHandler(i)}
+      />
   ))
 
   const deleteHandler = (index: number) : void => {
@@ -82,6 +78,7 @@ const App: React.FC = () => {
           name="name"
           value={usersState.currentUser.name}
           onChange={onChangeHandler}
+          required
         />
 
         <label htmlFor="userAge">Age:</label>
@@ -98,6 +95,7 @@ const App: React.FC = () => {
           name="job"
           value={usersState.currentUser.job}
           onChange={onChangeHandler}
+          required
         />
 
         <button type="submit">Add user</button>
