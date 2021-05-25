@@ -71,7 +71,7 @@ const App: React.FC = () => {
     <div className="container">
       <h1>React with Typescript</h1>
 
-      <form onSubmit={submitForm}>
+      <form onSubmit={submitForm} className={"card"}>
         <label htmlFor="userName">Name:</label>
         <input type="text"
           id="userName"
@@ -98,7 +98,7 @@ const App: React.FC = () => {
           required
         />
 
-        <button type="submit">Add user</button>
+        <button type="submit" className="submitBtn">Add user</button>
       </form>
 
       { allUsers }
