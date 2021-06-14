@@ -72,7 +72,7 @@ const App: React.FC = () => {
       <h1>React with Typescript</h1>
 
       <form onSubmit={submitForm} className={"card"}>
-        <label htmlFor="userName">Name:</label>
+        <label htmlFor="userName">User Name:</label>
         <input type="text"
           id="userName"
           name="name"
