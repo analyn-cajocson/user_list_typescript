@@ -89,7 +89,7 @@ const App: React.FC = () => {
           onChange={onChangeHandler}
         />
 
-        <label htmlFor="userJob">Job:</label>
+        <label htmlFor="userJob">User Job:</label>
         <input type="text"
           id="userJob"
           name="job"
