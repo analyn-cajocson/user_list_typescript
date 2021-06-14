@@ -81,7 +81,7 @@ const App: React.FC = () => {
           required
         />
 
-        <label htmlFor="userAge">Age:</label>
+        <label htmlFor="userAge">User Age:</label>
         <input type="number"
           id="userName"
           name="age"
